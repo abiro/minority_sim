@@ -1,0 +1,9 @@
+group_dist: [0.1, 0.3, 0.15, 0.15, 0.15, 0.15]
+inflex_growth: 1.05
+max_t: 120
+n_sim: 16
+n_groups: 3
+n_pop: 1000000
+p_inflex: 0.025
+# Target app penetration in the population
+target_p_app: 0.5

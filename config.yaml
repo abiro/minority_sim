@@ -1,0 +1,17 @@
+# Distribution of group sizes where the first index is group size 1
+group_dist: [0.1, 0.3, 0.15, 0.15, 0.15, 0.15]
+# Growth of the inflexible population at each time step
+inflex_growth: 1.05
+# Maximum time steps per simulation
+max_t: 120
+# Number of simulations to run
+n_sim: 16
+# Number of groups each individual can belong to
+n_groups: 3
+# Size of the population
+n_pop: 1000000
+# Probability that an individual is inflexible
+p_inflex: 0.05
+# Target app adoption in the population. Simulation will run until this or the
+# maximum steps are achieved.
+target_p_app: 0.5
