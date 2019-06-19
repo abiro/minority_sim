@@ -13116,14 +13116,14 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Minority-Rule-Simulation">Minority Rule Simulation<a class="anchor-link" href="#Minority-Rule-Simulation">&#182;</a></h1><p>This notebook explains the methodology behind a simulation of the effects of the minority rule on personal payments adoption and displays the results. For more background, see this post [TODO]. The code is available on <a href="https://github.com/abiro/minority_sim">Github</a>.</p>
-<h2 id="Setup">Setup<a class="anchor-link" href="#Setup">&#182;</a></h2><p>We assume a population of $N_{\text{pop}}$ individuals and a personal payments solution, Zebra with total adoption in the population. There exists a uniformly distributed subset of the population that is strongly dissatisfied with Zebra due to privacy concerns. The probability that an individual belongs to the dissatisfied subset is $P_{\text{inflex}}$. We assume that each individual belongs to a maximum number of $N_{\text{groups}}$ social groups where members use the same payment protocol to transact directly with each other. Following <a href="https://link.springer.com/article/10.1140/epjb/e20020045">[Galam 2002]</a>, a probability distribution for group sizes $\{a_i\}$ is assumed that satisfies the constraint</p>
+<h1 id="Minority-Rule-Simulation">Minority Rule Simulation<a class="anchor-link" href="#Minority-Rule-Simulation">&#182;</a></h1><p>This notebook explains the methodology behind a simulation of the effects of the minority rule on personal payments adoption and displays the results. For more background, see <a href="https://agost.blog/2019/06/mapping-crypto-minority-rule/">this post</a>. The code is available on <a href="https://github.com/abiro/minority_sim">Github</a>.</p>
+<h2 id="Setup">Setup<a class="anchor-link" href="#Setup">&#182;</a></h2><p>We assume a population of $N_{\text{pop}}$ individuals and a personal payment solution, Zebra with total adoption in the population. There exists a uniformly distributed subset of the population that is strongly dissatisfied with Zebra due to privacy concerns. The probability that an individual belongs to the dissatisfied subset is $P_{\text{inflex}}$. We assume that each individual belongs to a maximum number of $N_{\text{groups}}$ social groups where members use the same payment protocol to transact directly with each other. Following <a href="https://link.springer.com/article/10.1140/epjb/e20020045">[Galam 2002]</a>, a probability distribution for group sizes $\{a_i\}$ is assumed that satisfies the constraint</p>
 $$
 \begin{equation*}
 \sum_{i=1}^L {a_i} = 1
 \end{equation*}
 $$<p>where $i =1 ,2,...,L$ stand for group sizes and $L$ is the largest group size.</p>
-<h2 id="Simulation">Simulation<a class="anchor-link" href="#Simulation">&#182;</a></h2><p>A new personal payments solution, Alpha, is introduced with provable privacy that builds on a new protocol. Members of the dissatisfied population immediately adopt the new solution resulting in an initial user base of $N_{\text{inflex}} = N_{\text{pop}} \cdot P_{\text{inflex}}$ individuals. After the introduction Alpha, inflexible individuals refuse to send or receive payments over Zebra, and start advocating the use of Alpha and the power of intransigence in their respective social groups. <strong>We'd like to know if this strategy can lead to the adoption of Alpha by a majority of the entire population and if so in what time.</strong></p>
+<h2 id="Simulation">Simulation<a class="anchor-link" href="#Simulation">&#182;</a></h2><p>A new personal payment solution, Alpha, is introduced with provable privacy that builds on a new protocol. Members of the dissatisfied population immediately adopt the new solution resulting in an initial user base of $N_{\text{inflex}} = N_{\text{pop}} \cdot P_{\text{inflex}}$ individuals. After the introduction Alpha, inflexible individuals refuse to send or receive payments over Zebra, and start advocating the use of Alpha and the power of intransigence in their respective social groups. <strong>We'd like to know if this strategy can lead to the adoption of Alpha by a majority of the entire population and if so in what time.</strong></p>
 <p>We randomly assign all individuals to $N_{\text{groups}}$ social groups of varying sizes. We sample the group sizes from a preassumed group size distribution. We select $N_{\text{inflex}}$ individuals at random who form the initial inflexible population. We model the passing of time in time steps $t$ where each step corresponds to one month. We assume that the advocacy of the inflexible population grows their number by a constant factor of $G_{\text{inflex}}$ at each timestep. We model the probability that a group adopts the Alpha protocol as</p>
 $$
 P_{\text{adopt}}(i, s, a) = 
@@ -13357,8 +13357,8 @@ Name: steps, dtype: float64</pre>
     <span class="n">ax</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;p_app&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
     <span class="n">ax</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;p_inflex&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 
-<span class="n">fontP</span> <span class="o">=</span> <span class="n">FontProperties</span><span class="p">()</span>
-<span class="n">fontP</span><span class="o">.</span><span class="n">set_size</span><span class="p">(</span><span class="s1">&#39;small&#39;</span><span class="p">)</span>
+<span class="n">font_p</span> <span class="o">=</span> <span class="n">FontProperties</span><span class="p">()</span>
+<span class="n">font_p</span><span class="o">.</span><span class="n">set_size</span><span class="p">(</span><span class="s1">&#39;small&#39;</span><span class="p">)</span>
 <span class="n">legend</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">simulations</span><span class="p">:</span>
     <span class="n">name</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;\D&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
@@ -13366,7 +13366,7 @@ Name: steps, dtype: float64</pre>
     <span class="n">legend</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span> <span class="o">+</span> <span class="s1">&#39;_adoption&#39;</span><span class="p">)</span>
     <span class="n">legend</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span> <span class="o">+</span> <span class="s1">&#39;_inflexibles&#39;</span><span class="p">)</span>
 
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">legend</span><span class="p">,</span> <span class="n">prop</span><span class="o">=</span><span class="n">fontP</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.55</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">legend</span><span class="p">,</span> <span class="n">prop</span><span class="o">=</span><span class="n">font_p</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.55</span><span class="p">))</span>
 
 <span class="n">ax</span>
 </pre></div>
@@ -13387,10 +13387,10 @@ Name: steps, dtype: float64</pre>
 
 
 
-<div id="f346852a-0587-43d9-a1cf-d94a4a13c3a2"></div>
+<div id="54a02215-c2d9-44a8-9bd4-300074d19989"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#f346852a-0587-43d9-a1cf-d94a4a13c3a2');
+var element = $('#54a02215-c2d9-44a8-9bd4-300074d19989');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -14186,7 +14186,7 @@ if (IPython.notebook.kernel != null) {
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x2b0eb170748&gt;</pre>
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x2452f28c710&gt;</pre>
 </div>
 
 </div>
