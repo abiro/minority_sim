@@ -2,7 +2,7 @@
 
 Run Monte Carlo simulations of the effects of the minority rule on payment 
 protocol adoption. Read more of the background in [this post](https://agost.blog/2019/06/mapping-crypto-minority-rule/) or check out
-the [notebook](notebook.html) for an explanation on methodology and 
+the [notebook](notebook.ipynb) for an explanation on methodology and 
 results.
 
 ## How to run
